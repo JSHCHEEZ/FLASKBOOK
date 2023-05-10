@@ -12,6 +12,8 @@ from flask import (
     request,
     redirect,
     flash,
+    make_response,
+    session,
 )
 
 app = Flask(__name__)
@@ -75,7 +77,13 @@ with app.test_request_context("/users?updated=true"):
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
+    response = make_response(render_template("contact.html"))
+
+    response.set_cookie("flaskbook key", "flaskbook value")
+
+    session["username"] = "CHZ"
+
+    return response
 
 
 @app.route("/contact/complete", methods=["GET", "POST"])
