@@ -2,7 +2,7 @@
     "python.linting.banditEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
-        "--max-line-length=88"
+        "--max-line-length=100"
     ],
     "python.formatting.provider": "none",
     "editor.formatOnSave": true,
