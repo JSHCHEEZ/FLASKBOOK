@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "apps.minimalapp.app.py",
+                "FLASK_APP": "apps.app:create_app",
                 "FLASK_DEBUG": "1"
             },
             "args": [
