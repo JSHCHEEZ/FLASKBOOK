@@ -2,16 +2,19 @@ from flask import Blueprint, render_template, redirect, url_for
 from apps.app import db
 from apps.crud.models import User
 from apps.crud.forms import UserForm
+from flask_login import login_required
 
 crud = Blueprint("crud", __name__, template_folder="templates", static_folder="static")
 
 
 @crud.route("/")
+@login_required
 def index():
     return render_template("crud/index.html")
 
 
 @crud.route("/sql")
+@login_required
 def sql():
     db.session.query(User).all()
     return "콘솔 로그를 확인해 주세요"
@@ -37,12 +40,14 @@ def create_user():
 
 
 @crud.route("/users")
+@login_required
 def users():
     users = User.query.all()
     return render_template("crud/index.html", users=users)
 
 
 @crud.route("/users/<user_id>", methods=["GET", "POST"])
+@login_required
 def edit_user(user_id):
     form = UserForm()
 
