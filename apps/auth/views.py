@@ -33,9 +33,8 @@ def signup():
         login_user(user)
 
         next_ = request.args.get("next")
-
         if next_ is None or not next_.startswith("/"):
-            next_ = url_for("crud.users")
+            next_ = url_for("detector.index")
         return redirect(next_)
 
     return render_template("auth/signup.html", form=form)
@@ -50,7 +49,7 @@ def login():
 
         if user is not None and user.verify_password(form.password.data):
             login_user(user)
-            return redirect(url_for("crud.users"))
+            return redirect(url_for("detector.index"))
 
         flash("메일 주소 또는 비밀번호가 일치하지 않습니다.")
 

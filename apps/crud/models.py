@@ -33,3 +33,7 @@ class User(db.Model, UserMixin):
     @login_Manager.user_loader
     def load_user(user_id):
         return User.query.get(user_id)
+
+    user_images = db.relationship(
+        "UserImage", backref="user", order_by="desc(UserImage.id)"
+    )
