@@ -1,6 +1,5 @@
 import os
 import shutil
-
 import pytest
 from apps.app import create_app, db
 from apps.crud.models import User
@@ -8,7 +7,7 @@ from apps.detector.models import UserImage, UserImageTag
 
 
 # 픽스처 함수를 작성한다
-@pytest.fixturepyte
+@pytest.fixture
 def fixture_app():
     # 셋업 처리
     # 테스트용의 컨피그를 사용하기 위해서 인수에 testing을 지정한다

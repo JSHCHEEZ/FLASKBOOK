@@ -28,8 +28,6 @@ dt = Blueprint("detector", __name__, template_folder="templates")
 
 @dt.route("/")
 def index():
-    raise Exception()
-
     user_images = (
         db.session.query(User, UserImage)
         .join(UserImage)

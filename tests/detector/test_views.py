@@ -75,7 +75,7 @@ def test_detect_no_user_image(client):
     upload_image(client, "detector/testdata/test_valid_image.jpg")
     # 존재하지 않는 ID를 지정한다
     rv = client.post("/detect/notexistid", follow_redirects=True)
-    assert "물체 검지 대상의 이미지가 존재하지 않습니다." in rv.data.decode()
+    assert "물체 감지 대상의 이미지가 존재하지 않습니다." in rv.data.decode()
 
 
 def test_detect(client):
